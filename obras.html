@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOA'EU Galeria</title>
+    
+    
+    <link rel="shortcut icon" href="./images/computadoraMac.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    
+    
+    
+    
+</head>
+
+<body>
+    
+     <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 class="nav__title">Noa'eu.</h2>
+            </div>
+
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="index.html" class="nav__links">Inicio</a>
+                </li>
+                <li class="nav__items">
+                    <a href="obras.html" class="nav__links">Obras</a>
+                </li>
+                <li class="nav__items">
+                    <a href="registro.html" class="nav__links">Registrarse</a>
+                </li>
+                <li class="nav__items">
+                    <a href="login.html" class="nav__links">Ingresar</a>
+                </li>
+
+                <img src="./images/close.svg" class="nav__close">
+            </ul>
+
+            <div class="nav__menu">
+                <img src="./images/menu.svg" class="nav__img">
+            </div>
+        </nav>
+
+        <section class="hero__container container">
+            <h1 class="hero__title">Una nueva forma de mirar el arte.</h1>
+            <p class="hero__paragraph">Noa'eu es la nueva forma de visualizar y obtener arte digital.</p>
+            <a href="#" class="cta">Comienza ahora</a>
+        </section>
+    </header>
+    
+    
+    
+    
+    <div class="galeria">
+        <h1>BIENVENIDO A LA GALERIA</h1>
+        <div class="linea"></div>
+        <div class="contenedor-imagenes">
+           
+            <div class="imagen" >
+                <img src="images/Nft1.jpg" alt="">
+                <div class="overlay">
+                    
+                    
+                <div class="card" style="width: 18rem;">
+                            
+                   <div class="card-body">
+                  
+                    <p class="card-text">
+                        
+                       
+                        </p>
+                     
+                     </div>
+                
+                 </div>
+                 
+                    <h2>Like</h2>
+                    
+              
+                       <table>
+      <thead>
+     
+     
+                <th>
+                  Num Likes
+                </th>
+                
+                <th>
+                  Add Likes
+                </th>
+              </thead>
+              <tbody id="tweets-table">
+              </tbody>
+    </table>
+                    
+                                          <script>
+                          
+                          
+      // Referencing the tweet table (body)
+      const tweetsTable = document.getElementById("tweets-table");
+
+      // Creating the JSON array containing the tweets
+      // If array exists in local storage, it will be used
+      // If not, it will be created
+      var tweets;
+      if (!localStorage.tweets) {
+        tweets = [
+          {
+            "id": 1,
+            "text": "Tweet 1",
+            "author": "Author 1",
+            "likes": 0
+          }
+        ];
+
+        // Storing the tweets in the local storage
+        localStorage.setItem("tweets", JSON.stringify(tweets));
+      } else {
+        // Getting tweets from local storage
+        tweets = JSON.parse(localStorage.tweets);
+      }
+      
+      // Iterating tweet by tweet
+      tweets.map(tweet => {
+        // Creating the row for each tweet
+        let newTr = document.createElement("tr");
+
+        // Creating the id cell
+        let newTdId = document.createElement("td");
+        newTdId.innerHTML = tweet.id;
+
+        // Creating the text cell
+        let newTdText = document.createElement("td");
+        newTdText.innerHTML = tweet.text;
+
+        // Creating the author cell
+        let newTdAuthor = document.createElement("td");
+        newTdAuthor.innerHTML = tweet.author;
+
+        // Creating the num likes cell
+        let newTdLikes = document.createElement("td");
+        newTdLikes.id = "num-likes-" + tweet.id;
+        newTdLikes.innerHTML = tweet.likes;
+
+        // Creating the add like button cell
+        let newTdButton = document.createElement("td");
+        let newButton = document.createElement("button");
+        newButton.id = "add-like-" + tweet.id;
+        newButton.innerHTML = "Add Like";
+
+        // Attaching the click event listener to the button
+        newButton.addEventListener("click", function(event) {
+          let id = event.srcElement.id.replace("add-like-", "");
+
+          // Matching tweet with the id from the clicked button
+          let myTweet = tweets.find(tweet => tweet.id == id);
+
+          // Incrementing the num likes
+          myTweet.likes++;
+
+          // Updating the num likes cell
+          document.getElementById("num-likes-" + id).innerHTML = myTweet.likes;
+
+          // Updating the local storage
+          localStorage.setItem("tweets", JSON.stringify(tweets));
+        });
+
+        newTdButton.append(newButton);
+
+        newTr.appendChild(newTdId);
+        newTr.appendChild(newTdText);
+        newTr.appendChild(newTdAuthor);
+        newTr.appendChild(newTdLikes);
+        newTr.appendChild(newTdButton);
+
+        tweetsTable.appendChild(newTr);
+
+      });
+
+    </script>
+                    
+                    
+                </div>
+            </div>
+
+
+            <div class="imagen">
+                <img src="images/Nft2.png" alt="">
+                <div class="overlay">
+                    <h2>Like</h2>
+                    
+                    
+              
+                     
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div class="imagen">
+                <img src="images/Nft3.png"" alt="">
+                <div class="overlay">
+                    <h2>Like</h2>
+                </div>
+            </div>
+            
+            <div class="imagen">
+                <img src="images/Nft4.png" alt="">
+                <div class="overlay">
+                    <h2>Like</h2>
+                    
+                
+                </div>
+            </div>
+            
+              <div class="imagen">
+                <img src="images/Nft5.jpg" alt="">
+                <div class="overlay">
+                    <h2>Like</h2>
+                    
+                </div>
+            </div>
+            
+            
+            
+             <div class="imagen">
+                <img src="images/Nft6.jpg" alt="">
+                <div class="overlay">
+                    <h2>Like</h2>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+       <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">Noa'eu</h2>
+
+                <ul class="nav__link nav__link--footer">
+                    <li class="nav__items">
+                        <a href="#" class="nav__links">Crear</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="#" class="nav__links">Explorar</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="registro.html" class="nav__links">Registrase</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="login.html" class="nav__links">Ingresar</a>
+                    </li>
+                </ul>
+            </nav>
+
+        
+        </section>
+
+        <section class="footer__copy container">
+         
+            <h3 class="footer__copyright">Derechos reservados &copy; Omar Santos, Hernan Alvarado, Sebastian Muñoz</h3>
+        </section>
+    </footer>
+
+ 
+
+        <script>
+            
+      
+            
+            // Referencing the tweet table (body)
+      const tweetsTable = document.getElementById("tweets-table");
+
+      // Creating the JSON array containing the tweets
+      // If array exists in local storage, it will be used
+      // If not, it will be created
+      var tweets;
+      if (!localStorage.tweets) {
+        tweets = [
+          {
+            "id": 1,
+            "descripcion": "Tweet 1",
+            "author": "Author 1",
+            "likes": 0
+          },
+          {
+            "id": 2,
+            "text": "Tweet 2",
+            "author": "Author 2",
+            "likes": 0
+          },
+          {
+            "id": 3,
+            "text": "Tweet 3",
+            "author": "Author 3",
+            "likes": 0
+          }
+        ];
+
+        // Storing the tweets in the local storage
+        localStorage.setItem("tweets", JSON.stringify(tweets));
+      } else {
+        // Getting tweets from local storage
+        tweets = JSON.parse(localStorage.tweets);
+      }
+      
+      // Iterating tweet by tweet
+      tweets.map(tweet => {
+        // Creating the row for each tweet
+        let newTr = document.createElement("tr");
+
+        // Creating the id cell
+        let newTdId = document.createElement("td");
+        newTdId.innerHTML = tweet.id;
+
+        // Creating the text cell
+        let newTdText = document.createElement("td");
+        newTdText.innerHTML = tweet.text;
+
+        // Creating the author cell
+        let newTdAuthor = document.createElement("td");
+        newTdAuthor.innerHTML = tweet.author;
+
+        // Creating the num likes cell
+        let newTdLikes = document.createElement("td");
+        newTdLikes.id = "num-likes-" + tweet.id;
+        newTdLikes.innerHTML = tweet.likes;
+
+        // Creating the add like button cell
+        let newTdButton = document.createElement("td");
+        let newButton = document.createElement("button");
+        newButton.id = "add-like-" + tweet.id;
+        newButton.innerHTML = "Add Like";
+
+        // Attaching the click event listener to the button
+        newButton.addEventListener("click", function(event) {
+          let id = event.srcElement.id.replace("add-like-", "");
+
+          // Matching tweet with the id from the clicked button
+          let myTweet = tweets.find(tweet => tweet.id == id);
+
+          // Incrementing the num likes
+          myTweet.likes++;
+
+          // Updating the num likes cell
+          document.getElementById("num-likes-" + id).innerHTML = myTweet.likes;
+
+          // Updating the local storage
+          localStorage.setItem("tweets", JSON.stringify(tweets));
+        });
+
+        newTdButton.append(newButton);
+
+        newTr.appendChild(newTdId);
+        newTr.appendChild(newTdText);
+        newTr.appendChild(newTdAuthor);
+        newTr.appendChild(newTdLikes);
+        newTr.appendChild(newTdButton);
+
+        tweetsTable.appendChild(newTr);
+
+      });
+        </script>
+
+</body>
+
+</html>

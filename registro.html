@@ -1,0 +1,127 @@
+<html>
+    <head>            
+        <title>Registro</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>; 
+       <link href="css/login.css" rel="stylesheet" type="text/css" />
+
+        </head>       
+        <body>
+
+
+          <div class=" w3l-login-form">
+        
+            <h2>Registro</h2>
+            <form action="#" method="POST">
+    
+                <div class=" w3l-form-group">
+                    <label>Usuario :</label>
+                    <div class="group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control"id="nombretxt" placeholder="Usuario"  />
+                    </div>
+                </div>
+
+          
+
+                <!-- div class=" w3l-form-group">
+                  <label>Contraseña:</label>
+                  <div class="group">
+                      <i class="fas fa-unlock"></i>
+                      <input type="password" class="form-control" id="contraseñatxt " placeholder="Contraseña"  />
+                  </div>
+              </div-->
+
+
+                          
+              <div class=" w3l-form-group">
+                <label>Descripcion :</label>
+                <div class="group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-control" id="descripciontxt" placeholder="Descripcion"  />
+                    
+                </div>
+            </div>
+
+                  
+                  
+                  <div class=" w3l-form-group">
+                      <label>Avatar:</label>
+                      <div class="group">
+                        <i class="fas fa-avatar"></i>
+                  
+                 
+                                <form name="subida-imagenes" type="POST" enctype="multipart/formdata" >
+                                  	
+                                    <input type="file" name="imagen1" />
+                                  	
+                        
+                                </form>
+                              
+                        </div>
+            </div>       
+                
+             
+
+<button id="boton-guardar">Guardar</button><br>
+
+
+
+<div class=" w3l-form-group">           
+<label>Nombre almacenado: </label>
+<label type="text" id="nombre"></label><br>    
+
+
+<label>Descripcion almacenado: </label>
+<label "text" id="descripcion"></label><br>
+
+
+
+<button id="boton-cargar">
+      
+  Cargar elementos
+</button>
+</center>
+
+<hr />
+
+
+<script>
+
+  $(document).ready(function(){    
+      $('#boton-guardar').click(function(){        
+          /*Captura de datos escrito en los inputs*/        
+          var nom = document.getElementById("nombretxt").value;
+         /* var con = document.getElementById("contraseñatxt").value;*/
+          var desc = document.getElementById("descripciontxt").value;
+          /*Guardando los datos en el LocalStorage*/
+          localStorage.setItem("Nombre", nom);
+         /* localStorage.setItem("Contraseña", con);*/
+          localStorage.setItem("Descripcion", desc);
+          /*Limpiando los campos o inputs*/
+          document.getElementById("nombretxt").value = "";
+          /*document.getElementById("contraseñatxt").value = "";*/
+          document.getElementById("descripciontxt").value = "";
+      })   
+  });
+  
+  /*Funcion Cargar y Mostrar datos*/
+  $(document).ready(function(){    
+      $('#boton-cargar').click(function(){                       
+          /*Obtener datos almacenados*/
+          var nombre = localStorage.getItem("Nombre");
+          ///var contraseña = localStorage.getItem("Contraseña");
+          var descripcion = localStorage.getItem("Descripcion");
+         
+          /*Mostrar datos almacenados*/      
+          document.getElementById("nombre").innerHTML = nombre;
+         /* document.getElementById("contraseña").innerHTML = contraseña; */
+          document.getElementById("descripcion").innerHTML = descripcion; 
+      })
+  })
+  
+  </script>
+  
+
+      </body> 
+</html>
+
